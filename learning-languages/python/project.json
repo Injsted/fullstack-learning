@@ -1,0 +1,13 @@
+{
+  "name": "learning-languages-python",
+  "sourceRoot": "learning-languages/python/src",
+  "projectType": "application",
+  "targets": {
+    "run": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "python3 learning-languages/python/src/example.py"
+      }
+    }
+  }
+}

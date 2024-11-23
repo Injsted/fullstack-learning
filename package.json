@@ -5,7 +5,8 @@
   "scripts": {
     "start:react-js": "nx serve react-js",
     "start:react-ts": "nx serve react-ts",
-    "run:ts": "./run-ts.sh"
+    "run:ts": "./run-ts.sh",
+    "run:python": "./run-python.sh"
   },
   "private": true,
   "devDependencies": {
