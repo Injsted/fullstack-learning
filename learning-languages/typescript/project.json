@@ -1,0 +1,13 @@
+{
+  "name": "learning-languages-typescript",
+  "sourceRoot": "learning-languages/typescript/src",
+  "projectType": "application",
+  "targets": {
+    "run": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node learning-languages/typescript/src/example.ts"
+      }
+    }
+  }
+}

@@ -1,109 +1,214 @@
-# FullstackLearning
+Here’s the updated **README** with the information about the two frontend apps and the `learning-languages` project integrated seamlessly into the original structure:
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+---
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+# Fullstack Learning Monorepo
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+This monorepo supports learning and experimentation with multiple programming languages and frameworks. It uses **Nx** for project and dependency management, and **pnpm** for faster and more efficient package management.
 
-## Generate a library
+---
 
-```sh
-npx nx g @nx/js:lib packages/pkg1 --publishable --importPath=@my-org/pkg1
+## **Monorepo Setup**
+
+### **Prerequisites**
+
+#### Install Required Tools via Homebrew
+1. **Install Node.js** (Ensure version 16 or later):
+   ```bash
+   brew install node
+   ```
+
+2. **Install pnpm** (A fast and efficient package manager):
+   ```bash
+   brew install pnpm
+   ```
+
+3. **Install Nx CLI** (Globally for workspace management):
+   ```bash
+   brew install nx
+   ```
+
+4. (Optional) **Install Python** (for future projects):
+   ```bash
+   brew install python
+   ```
+
+#### Verify Installations
+Run the following commands to confirm everything is set up:
+```bash
+node --version
+pnpm --version
+nx --version
+python3 --version
 ```
 
-## Run tasks
+---
 
-To build the library use:
-
-```sh
-npx nx build pkg1
+### **Install Dependencies**
+After cloning the repository, install all dependencies:
+```bash
+pnpm install
 ```
 
-To run any task with Nx use:
+---
 
-```sh
-npx nx <target> <project-name>
-```
+### **Workspace Structure**
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Versioning and releasing
-
-To version and release the library use
+The monorepo is organized with projects at the root level:
 
 ```
-npx nx release
+fullstack-learning/
+├── frontend-react-js/            # React app using JavaScript
+├── frontend-react-ts/            # React app using TypeScript
+├── learning-languages/           # Multi-language learning project
+│   ├── typescript/               # TypeScript scripts and experiments
+│   │   ├── src/                  # Source code for TypeScript
+│   │   │   ├── basics/
+│   │   │   │   ├── types.ts
+│   │   │   │   ├── interfaces.ts
+│   │   │   ├── advanced/
+│   │   │   │   ├── generics.ts
+│   │   │   │   ├── decorators.ts
+│   │   │   ├── example.ts        # Example script
+│   ├── python/                   # Python scripts (future)
+├── backend-nodejs/               # Backend project using Node.js (future)
+├── backend-python-django/        # Backend project using Django (future)
+├── nx.json                       # Nx workspace configuration
+├── package.json                  # Dependencies and scripts
+├── pnpm-lock.yaml                # pnpm lockfile
 ```
 
-Pass `--dry-run` to see what would happen without actually releasing the library.
+Each project is independent and configured with **Nx** targets for building, running, and testing.
 
-[Learn more about Nx release &raquo;](hhttps://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
-## Keep TypeScript project references up to date
+## **Frontend Applications**
 
-Nx automatically updates TypeScript [project references](https://www.typescriptlang.org/docs/handbook/project-references.html) in `tsconfig.json` files to ensure they remain accurate based on your project dependencies (`import` or `require` statements). This sync is automatically done when running tasks such as `build` or `typecheck`, which require updated references to function correctly.
+### **React with JavaScript (`frontend-react-js`)**
+A React application built with JavaScript for learning the basics of React, including components, state, props, and lifecycle methods.
 
-To manually trigger the process to sync the project graph dependencies information to the TypeScript project references, run the following command:
+#### How to Run:
+1. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-```sh
-npx nx sync
+2. Start the development server:
+   ```bash
+   npm run start:react-js
+   ```
+
+3. Open your browser and navigate to:
+   ```
+   http://localhost:4200
+   ```
+
+#### Key Features:
+- **JavaScript-based React**: No TypeScript, focusing on fundamental React concepts.
+- **Vite Bundler**: Fast development server with instant hot module replacement.
+
+---
+
+### **React with TypeScript (`frontend-react-ts`)**
+A React application built with TypeScript, focusing on integrating TypeScript’s static typing capabilities into React.
+
+#### How to Run:
+1. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run start:react-ts
+   ```
+
+3. Open your browser and navigate to:
+   ```
+   http://localhost:4200
+   ```
+
+#### Key Features:
+- **TypeScript-based React**: Learn React concepts with strict type checking and advanced TypeScript features.
+- **Vite Bundler**: Enables fast development and optimized builds.
+
+---
+
+## **Learning Languages Project**
+
+The `learning-languages` project is a dedicated space for experimenting with multiple programming languages. It currently focuses on **TypeScript**, with plans to expand to Python, Rust, and more.
+
+### **Purpose**
+- Provide a hands-on environment for practicing programming concepts.
+- Experiment with language-specific features and libraries.
+- Build a foundation for full-stack development by mastering multiple languages.
+
+### **TypeScript**
+The TypeScript subproject contains scripts for:
+- **Basic TypeScript concepts**: Types, interfaces, and generics.
+- **Advanced features**: Type inference, decorators, and utility types.
+- **Real-world use cases**: Solving problems with static typing.
+
+#### How to Run a TypeScript Script:
+1. Add your `.ts` file to the `learning-languages/typescript/src/` directory:
+   ```bash
+   touch learning-languages/typescript/src/my-new-script.ts
+   ```
+
+2. Add your code:
+   ```typescript
+   // learning-languages/typescript/src/my-new-script.ts
+   const greet = (name: string): string => `Hello, ${name}!`;
+   console.log(greet('World'));
+   ```
+
+3. Run your script:
+   ```bash
+   npm run run:ts my-new-script.ts
+   ```
+
+---
+
+### **Nx Workspace Commands**
+
+#### List All Projects
+```bash
+nx list
 ```
 
-You can enforce that the TypeScript project references are always in the correct state when running in CI by adding a step to your CI job configuration that runs the following command:
-
-```sh
-npx nx sync:check
+#### View Dependency Graph
+```bash
+nx graph
 ```
 
-[Learn more about nx sync](https://nx.dev/reference/nx-commands#sync)
-
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
+#### Run Specific Nx Targets
+```bash
+nx run <project-name>:<target>
 ```
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+---
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## **What is pnpm?**
 
-### Step 2
+**pnpm** is a performant and space-efficient package manager for JavaScript. It improves on npm and Yarn by creating a global package store and linking dependencies, saving disk space and speeding up installations.
 
-Use the following command to configure a CI workflow for your workspace:
+### **Benefits of pnpm**
+1. **Speed**: Faster installations due to optimized caching.
+2. **Efficiency**: Saves disk space by creating links to a centralized package store.
+3. **Strict Dependency Management**: Ensures correct resolution of dependencies.
 
-```sh
-npx nx g ci-workflow
-```
+#### **References**
+- Official Website: [https://pnpm.io/](https://pnpm.io/)
+- Why Choose pnpm: [https://pnpm.io/motivation](https://pnpm.io/motivation)
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
-## Install Nx Console
+## **Future Plans**
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+- Add support for Python and Rust.
+- Expand the TypeScript project with real-world problem-solving examples.
+- Integrate backend projects using Node.js and Django.
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+This README now includes everything needed to understand and use the `frontend-react-js`, `frontend-react-ts`, and `learning-languages` projects. Let me know if you'd like further refinements! 🚀
